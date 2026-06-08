@@ -1,0 +1,8 @@
+/**
+ * @license
+ * Copyright (c) Speedernet <contact@speedernet.fr>
+ * ALL RIGHTS RESERVED
+ * This file is part of SpeedernetSphere project
+ * SpeedernetSphere can not be copied and/or distributed without the express permission of Speedernet
+ */
+(function(){"use strict";let e="speedernet-sphere-experience";let s=null;self.addEventListener("fetch",e=>{e.respondWith(caches.match(e.request).then(s=>s||fetch(e.request)))});importScripts("./static/js/libs/cache/workbox-sw.js");let t=workbox;t.setConfig({debug:false,modulePathPrefix:"./static/js/libs/cache/"});t.routing.registerRoute(new RegExp("/"),new t.strategies.CacheFirst({cacheName:e,plugins:[new t.cacheableResponse.CacheableResponsePlugin({statuses:[200]}),new t.rangeRequests.RangeRequestsPlugin]}));t.core.skipWaiting();t.core.clientsClaim();const a=(e,s,t)=>{e.add(t[s]).then(()=>{i(e,s,t)}).catch(a=>{i(e,s,t)})};const i=(e,t,i)=>{let n={message:"synch",index:t,len:i.length,name:i[t]};s.postMessage(JSON.stringify(n));t++;if(t>=i.length){let e={message:"synched"};s.postMessage(JSON.stringify(e))}else{a(e,t,i)}};const n=e=>{try{caches.open(e).then(e=>{let t={message:"startsynch"};s.postMessage(JSON.stringify(t));a(e,0,self.filesToCache)})}catch(e){console.error("Error during caching",e)}};self.addEventListener("message",t=>{s=t.source;if(t.data.message=="start"){n(e)}if(t.data.message=="fileexist"){c(t.data.uri,e)}});const c=(e,t)=>caches.open(t).then(t=>t.match(e).then(t=>{let a=t&&t.status==200;s.postMessage(JSON.stringify({message:"fileexist",uri:e,value:a}))},t=>{s.postMessage(JSON.stringify({message:"fileexist",uri:e,value:false}))}))})();

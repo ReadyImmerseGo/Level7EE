@@ -67,7 +67,7 @@ filesToCache = [
 "./data/uhd/sprites/balloons.png",
 "./data/uhd/sprites/Bus.png",
 "./data/uhd/sprites/Compass.png",
-"./data/uhd/sprites/fast_travel_menu.png",
+"./data/uhd/sprites/fast_travel_menu_1.jpg",
 "./data/uhd/sprites/Freizeitticket.png",
 "./data/uhd/sprites/Germkn__del.jpg",
 "./data/uhd/sprites/Hoadl-o.jpg",

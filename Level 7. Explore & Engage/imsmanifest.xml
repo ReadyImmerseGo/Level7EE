@@ -1,0 +1,68 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  ~ COPYRIGHT (c) 2014-2025 Speedernet <contact@speedernet.fr>
+  ~ ALL RIGHTS RESERVED
+  ~ This file imsmanifest.xml is part of SpeedernetSphere project
+  ~ SpeedernetSphere can not be copied and/or distributed without the express permission of Speedernet
+  -->
+<manifest identifier="sphere" version="1.0"
+		  xmlns="http://www.imsglobal.org/xsd/imscp_v1p1"
+		  xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_v1p3"
+		  xmlns:imsss="http://www.imsglobal.org/xsd/imsss"
+		  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		  xsi:schemaLocation="http://www.imsglobal.org/xsd/imscp_v1p1
+		http://www.imsglobal.org/xsd/imsss
+		http://www.adlnet.org/xsd/adlcp_v1p3
+		http://www.adlnet.org/xsd/adlseq_v1p3">
+	<metadata>
+		<schema>ADL SCORM</schema>
+		<!-- Todo: need to be defined at export ? -->
+		<schemaversion>2004 4th Edition</schemaversion>
+		<!--<schemaversion>1.2</schemaversion>-->
+	</metadata>
+	<organizations default="sphere-speedernet">
+		<organization identifier="sphere-speedernet">
+			<!-- Todo: need to be defined at export -->
+			<title>SpeedernetSphereViewer</title>
+			<imsss:sequencing>
+				<!-- adding choice="true" flow="true" allow adl.nav.request -->
+				<imsss:controlMode choice="true" flow="true" choiceExit="true" />
+			</imsss:sequencing>
+
+			<item identifier="sphere-title" identifierref="sphere-launch">
+				<!-- Todo: need to be defined at export -->
+				<title>SpeedernetSphereViewer</title>
+				<imsss:sequencing>
+					<imsss:deliveryControls completionSetByContent="true" objectiveSetByContent="true"/>
+					<!--
+						Create arbitrary list of 20 objectives.
+					-->
+					<imsss:objectives>
+						<imsss:primaryObjective objectiveID="objective_1"/>
+						<imsss:objective objectiveID="objective_2"/>
+						<imsss:objective objectiveID="objective_3"/>
+						<imsss:objective objectiveID="objective_4"/>
+						<imsss:objective objectiveID="objective_5"/>
+						<imsss:objective objectiveID="objective_6"/>
+						<imsss:objective objectiveID="objective_7"/>
+						<imsss:objective objectiveID="objective_8"/>
+						<imsss:objective objectiveID="objective_9"/>
+						<imsss:objective objectiveID="objective_10"/>
+						<imsss:objective objectiveID="objective_11"/>
+						<imsss:objective objectiveID="objective_12"/>
+						<imsss:objective objectiveID="objective_13"/>
+						<imsss:objective objectiveID="objective_14"/>
+						<imsss:objective objectiveID="objective_15"/>
+						<imsss:objective objectiveID="objective_16"/>
+						<imsss:objective objectiveID="objective_17"/>
+						<imsss:objective objectiveID="objective_18"/>
+						<imsss:objective objectiveID="objective_19"/>
+						<imsss:objective objectiveID="objective_20"/>
+					</imsss:objectives>
+					<!-- //////// -->
+				</imsss:sequencing>
+			</item>
+		</organization>
+	</organizations>
+	<resources>
+		<resource identifier="sphere-launch" adlcp:scormType="sco" href="index.html" type="webcontent">
